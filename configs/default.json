@@ -1,0 +1,11 @@
+{
+  "seed": 42,
+  "target_column": "DEATH_EVENT",
+  "test_fraction": 0.2,
+  "cv_folds": 5,
+  "features_to_log": ["creatinine_phosphokinase", "serum_creatinine"],
+  "torch_hidden_units": 64,
+  "torch_learning_rate": 0.001,
+  "torch_batch_size": 32,
+  "torch_epochs": 100
+}
