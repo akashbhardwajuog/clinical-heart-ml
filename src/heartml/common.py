@@ -9,6 +9,7 @@ PROCESSED = ROOT / "data/processed"
 MODELS = ROOT / "models"
 CONFIGS = ROOT / "configs"
 FIGURES = ROOT / "reports/figures"
+TABLES = ROOT / "reports/tables"
 
 def load_config():
     with open(CONFIGS / "default.json") as f:

@@ -46,3 +46,20 @@ To run this pipeline locally and generate the predictive models:
 
 4\. \*\*Train Models:\*\* `python -m heartml.train\_sklearn` and `python -m heartml.train\_torch`
 
+## Biological Significance & Model Interpretation
+
+Unlike "black-box" deep learning models, the L1-Regularized Logistic Regression provides direct clinical interpretability by zeroing out statistical noise and assigning actionable weights to core biomarkers.
+
+### 1. Clinical Biomarker Importance
+![Feature Importance](reports/figures/feature_importance.png)
+
+**Pathophysiological Insights:**
+* **Time (Follow-up period):** The strongest negative predictor, intuitively capturing that patients who survive the acute phase of heart failure and have longer follow-up periods are statistically less likely to die during the study window.
+* **Ejection Fraction (Systolic Dysfunction):** Shows a strong negative correlation. Lower left ventricular ejection fraction directly correlates with reduced cardiac output and higher mortality risk.
+* **Serum Creatinine (Renal Impairment):** The strongest positive predictor. Elevated serum creatinine indicates worsening renal perfusion (cardiorenal syndrome), a classic hallmark of end-stage heart failure.
+* **Age:** Older patient demographic is heavily weighted toward the mortality outcome, aligning with standard clinical frailty indices.
+
+### 2. Receiver Operating Characteristic (ROC)
+![ROC Curve](reports/figures/roc_curve.png)
+The linear model successfully discriminates between survival and mortality outcomes with an **AUC of 0.860**, proving that carefully scaled and biologically transformed baseline features (like log-scaled CPK and creatinine) carry sufficient signal without requiring complex multi-layer architectures.
+
